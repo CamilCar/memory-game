@@ -13,11 +13,19 @@ function imagesToBoard() {
         'assets/images/taj-mahal.jpeg',
         'assets/images/white-house.jpeg',
     ]
-    for(let i = 0; 0 < imageArray.length ; i++){
-        let img = document.createElement('img');
-        img.src = imageArray[i];
-        document.getElementsByClassName("card-front")[i].appendChild(img);
+    let boardHtml = ""
+    for(let i = 0; i < imageArray.length ; i++){
+        let cardsHtml = `
+            <div class="card" onclick="flip(event);">
+                <div class="card-front">
+                <img src="${imageArray[i]}">
+                </div>
+                <div class="card-back"></div>
+            </div>
+        `;
+        boardHtml += cardsHtml
     }
+    document.getElementById("board").innerHTML = boardHtml
 }
 
 

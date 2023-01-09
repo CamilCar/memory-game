@@ -13,12 +13,15 @@ function imagesToBoard() {
         'assets/images/taj-mahal.jpeg',
         'assets/images/white-house.jpeg',
     ]
+
+    let duplicatedArray = [...imageArray, ...imageArray];
+
     let boardHtml = ""
-    for(let i = 0; i < imageArray.length ; i++){
+    for(let i = 0; i < duplicatedArray.length  ; i++){
         let cardsHtml = `
             <div class="card" onclick="flip(event);">
                 <div class="card-front">
-                <img src="${imageArray[i]}">
+                <img src="${duplicatedArray[i]}">
                 </div>
                 <div class="card-back"></div>
             </div>

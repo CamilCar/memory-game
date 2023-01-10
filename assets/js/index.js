@@ -58,7 +58,7 @@ function flipCard(event){
     displayCard(currentTarget)
 
     state.flippedCards++
-    let imgSrc = currentTarget.querySelector("img").src
+    let imgSrc = currentTarget.querySelector("img").getAttribute("src")
 
     if (state.flippedCards === 1) {
         state.card1Url = imgSrc
@@ -67,12 +67,13 @@ function flipCard(event){
     if(state.flippedCards === 2) {
         state.card2Url = imgSrc
         if (state.card1Url !== state.card2Url){
-            flipBackCards();
-            emptyState();
+            setTimeout(() => {
+                flipBackCards()
+                emptyState();
+            }, 1000)
         } else {
             emptyState();
         }
-        console.log(state)
     }
 
 }
@@ -88,8 +89,14 @@ function displayCard(cardElement){
 }
 
 function flipBackCards() {
-    document.querySelectorAll('.card:not(.matched)').forEach(card => {
-        card.classList.remove('flipped')
-    })
-    state.flippedCards = 0
+
+    let firstCardImg = document.querySelectorAll(`img[src='${state.card1Url}']`);
+    let secondCardImg = document.querySelectorAll(`img[src='${state.card2Url}']`);
+
+    firstCardImg[0].parentElement.nextElementSibling.style.visibility = "visible"
+    firstCardImg[1].parentElement.nextElementSibling.style.visibility = "visible"
+    secondCardImg[0].parentElement.nextElementSibling.style.visibility = "visible"
+    secondCardImg[1].parentElement.nextElementSibling.style.visibility = "visible"
 }
+    
+

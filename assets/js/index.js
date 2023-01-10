@@ -1,7 +1,11 @@
 /* initiate game */
 imagesToBoard();
 
-
+let state = {
+    flippedCards: 0,
+    card1Url: '',
+    card2Url: ''
+}
 /* images*/
 
 function imagesToBoard() {
@@ -16,10 +20,10 @@ function imagesToBoard() {
 //* Duplicates array and flips the cards */
     let duplicatedArray = [...imageArray, ...imageArray];
     let shuffledArray = shuffleArray(duplicatedArray);
-    let boardHtml = ""
+    let boardHtml = '';
     for (let i = 0; i < shuffledArray.length; i++) {
         let cardsHtml = `
-            <div class="card" onclick="flip(event);">
+            <div class="card" onclick="flipCard(event);">
                 <div class="card-front">
                 <img src="${shuffledArray[i]}">
                 </div>
@@ -31,11 +35,6 @@ function imagesToBoard() {
     document.getElementById("board").innerHTML = boardHtml
 }
 
-function flip(event) {
-    let currentTarget = event.currentTarget;
-    currentTarget.children[1].style.visibility = "hidden";
-
-}
 //* Shuffles the cards/arrays */
 function shuffleArray(arrayToShuffle) {
     let currentIndex = arrayToShuffle.length,
@@ -54,30 +53,43 @@ function shuffleArray(arrayToShuffle) {
     return arrayToShuffle;
 }
 
-let flipBackCards = () => {
+function flipCard(event){
+    let currentTarget = event.currentTarget
+    displayCard(currentTarget)
+
+    state.flippedCards++
+    let imgSrc = currentTarget.querySelector("img").src
+
+    if (state.flippedCards === 1) {
+        state.card1Url = imgSrc
+        return
+    }
+    if(state.flippedCards === 2) {
+        state.card2Url = imgSrc
+        if (state.card1Url !== state.card2Url){
+            flipBackCards();
+            emptyState();
+        } else {
+            emptyState();
+        }
+        console.log(state)
+    }
+
+}
+function emptyState(){
+    state.flippedCards = 0;
+    state.card1Url = "";
+    state.card2Url = "";
+
+}
+
+function displayCard(cardElement){
+    cardElement.children[1].style.visibility = "hidden";
+}
+
+function flipBackCards() {
     document.querySelectorAll('.card:not(.matched)').forEach(card => {
         card.classList.remove('flipped')
     })
     state.flippedCards = 0
-}
-
-let flipCard = card => {
-    state.flippedCards++
-}
-
-if(state.flippedCards <= 2) {
-    card.classList.add('flipped')
-}
-
-if (state.flippedCards === 2) {
-    let flippedCards = document.querySelectorAll('.flipped:not(.matched')
-
-    if (flippedCards[0].innerText === flippedCards[1].innertext) {
-        flippedCards[0].classList.add('matched')
-        flippedCards[1].classList.add('matched')
-    }
-
-    setTimeout(() => {
-        flipBackCards()
-    }, 1000)
 }

@@ -53,3 +53,31 @@ function shuffleArray(arrayToShuffle) {
 
     return arrayToShuffle;
 }
+
+let flipBackCards = () => {
+    document.querySelectorAll('.card:not(.matched)').forEach(card => {
+        card.classList.remove('flipped')
+    })
+    state.flippedCards = 0
+}
+
+let flipCard = card => {
+    state.flippedCards++
+}
+
+if(state.flippedCards <= 2) {
+    card.classList.add('flipped')
+}
+
+if (state.flippedCards === 2) {
+    let flippedCards = document.querySelectorAll('.flipped:not(.matched')
+
+    if (flippedCards[0].innerText === flippedCards[1].innertext) {
+        flippedCards[0].classList.add('matched')
+        flippedCards[1].classList.add('matched')
+    }
+
+    setTimeout(() => {
+        flipBackCards()
+    }, 1000)
+}

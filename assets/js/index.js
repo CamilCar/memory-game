@@ -2,7 +2,7 @@
 imagesToBoard();
 
 
-/* images */ 
+/* images*/
 
 function imagesToBoard() {
     let imageArray = [
@@ -13,15 +13,15 @@ function imagesToBoard() {
         'assets/images/taj-mahal.jpeg',
         'assets/images/white-house.jpeg',
     ]
-
+//* Duplicates array and flips the cards */
     let duplicatedArray = [...imageArray, ...imageArray];
-
+    let shuffledArray = shuffleArray(duplicatedArray);
     let boardHtml = ""
-    for(let i = 0; i < duplicatedArray.length  ; i++){
+    for (let i = 0; i < shuffledArray.length; i++) {
         let cardsHtml = `
             <div class="card" onclick="flip(event);">
                 <div class="card-front">
-                <img src="${duplicatedArray[i]}">
+                <img src="${shuffledArray[i]}">
                 </div>
                 <div class="card-back"></div>
             </div>
@@ -31,9 +31,25 @@ function imagesToBoard() {
     document.getElementById("board").innerHTML = boardHtml
 }
 
-
 function flip(event) {
     let currentTarget = event.currentTarget;
     currentTarget.children[1].style.visibility = "hidden";
 
+}
+//* Shuffles the cards/arrays */
+function shuffleArray(arrayToShuffle) {
+    let currentIndex = arrayToShuffle.length,
+        randomIndex;
+
+    while (currentIndex != 0) {
+
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        [arrayToShuffle[currentIndex], arrayToShuffle[randomIndex]] = [
+            arrayToShuffle[randomIndex], arrayToShuffle[currentIndex]
+        ];
+    }
+
+    return arrayToShuffle;
 }

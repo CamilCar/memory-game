@@ -33,7 +33,7 @@ img {
     border-radius: 5px;
 }
 
-.board {
+#board {
     padding: 20px;
     display: grid;
     grid-template-columns: repeat(4, auto);

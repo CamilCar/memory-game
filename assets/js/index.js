@@ -1,11 +1,14 @@
-/* initiate game */
-imagesToBoard();
-
 let state = {
     flippedCards: 0,
     card1Url: '',
-    card2Url: ''
+    card2Url: '',
+    amountOfCards: 0,
+    amountOfCardsTurned: 0,
 }
+
+/* initiate game */
+imagesToBoard();
+
 /* images*/
 
 function imagesToBoard() {
@@ -20,6 +23,9 @@ function imagesToBoard() {
 //* Duplicates array and flips the cards */
     let duplicatedArray = [...imageArray, ...imageArray];
     let shuffledArray = shuffleArray(duplicatedArray);
+
+    state.amountOfCards = shuffledArray.length;
+
     let boardHtml = '';
     for (let i = 0; i < shuffledArray.length; i++) {
         let cardsHtml = `
@@ -75,6 +81,8 @@ function flipCard(event){
                 emptyState();
             }, 1000)
         } else {
+            state.amountOfCardsTurned += 2;
+            checkIfBoardIsDone();
             emptyState();
         }
     }
@@ -101,9 +109,14 @@ function flipBackCards() {
     secondCardImg[0].parentElement.nextElementSibling.style.visibility = "visible"
     secondCardImg[1].parentElement.nextElementSibling.style.visibility = "visible"
 }
-/*
-function boardDone() {
-    let boardIsDone = 
+
+function checkIfBoardIsDone() {
+    console.log(state)
+    let boardIsDone = state.amountOfCards === state.amountOfCardsTurned
+    if (boardIsDone){
+        alert("Well done! Play another round?")
+    }
+        
 }
 
 function increaseScore() {
@@ -111,4 +124,3 @@ function increaseScore() {
     let oldScore = parseInt(document.getElementById("score").innerText);
     document.getElementById("score").innerText = ++oldScore;
 } 
-*/

@@ -55,9 +55,12 @@ function shuffleArray(arrayToShuffle) {
 
 function flipCard(event){
     let currentTarget = event.currentTarget
+    if (state.flippedCards === 2){
+        return
+    }
     displayCard(currentTarget)
-
     state.flippedCards++
+
     let imgSrc = currentTarget.querySelector("img").getAttribute("src")
     
     if (state.flippedCards === 1) {
@@ -98,13 +101,14 @@ function flipBackCards() {
     secondCardImg[0].parentElement.nextElementSibling.style.visibility = "visible"
     secondCardImg[1].parentElement.nextElementSibling.style.visibility = "visible"
 }
-
+/*
 function boardDone() {
-
+    let boardIsDone = 
 }
 
 function increaseScore() {
 
     let oldScore = parseInt(document.getElementById("score").innerText);
     document.getElementById("score").innerText = ++oldScore;
-}
+} 
+*/

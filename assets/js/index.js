@@ -59,7 +59,7 @@ function flipCard(event){
 
     state.flippedCards++
     let imgSrc = currentTarget.querySelector("img").getAttribute("src")
-
+    
     if (state.flippedCards === 1) {
         state.card1Url = imgSrc
         return
@@ -98,5 +98,13 @@ function flipBackCards() {
     secondCardImg[0].parentElement.nextElementSibling.style.visibility = "visible"
     secondCardImg[1].parentElement.nextElementSibling.style.visibility = "visible"
 }
-    
 
+function boardDone() {
+
+}
+
+function increaseScore() {
+
+    let oldScore = parseInt(document.getElementById("score").innerText);
+    document.getElementById("score").innerText = ++oldScore;
+}

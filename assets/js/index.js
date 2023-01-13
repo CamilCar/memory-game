@@ -4,6 +4,7 @@ let state = {
     card2Url: '',
     amountOfCards: 0,
     amountOfCardsTurned: 0,
+    score: 0,
 }
 
 /* initiate game */
@@ -20,7 +21,7 @@ function imagesToBoard() {
         'assets/images/taj-mahal.jpeg',
         'assets/images/white-house.jpeg',
     ]
-//* Duplicates array and flips the cards */
+    //* Duplicates array and flips the cards */
     let duplicatedArray = [...imageArray, ...imageArray];
     let shuffledArray = shuffleArray(duplicatedArray);
 
@@ -59,23 +60,23 @@ function shuffleArray(arrayToShuffle) {
     return arrayToShuffle;
 }
 
-function flipCard(event){
+function flipCard(event) {
     let currentTarget = event.currentTarget
-    if (state.flippedCards === 2){
+    if (state.flippedCards === 2) {
         return
     }
     displayCard(currentTarget)
     state.flippedCards++
 
     let imgSrc = currentTarget.querySelector("img").getAttribute("src")
-    
+
     if (state.flippedCards === 1) {
         state.card1Url = imgSrc
         return
     }
-    if(state.flippedCards === 2) {
+    if (state.flippedCards === 2) {
         state.card2Url = imgSrc
-        if (state.card1Url !== state.card2Url){
+        if (state.card1Url !== state.card2Url) {
             setTimeout(() => {
                 flipBackCards()
                 emptyState();
@@ -88,14 +89,15 @@ function flipCard(event){
     }
 
 }
-function emptyState(){
+
+function emptyState() {
     state.flippedCards = 0;
     state.card1Url = "";
     state.card2Url = "";
 
 }
 
-function displayCard(cardElement){
+function displayCard(cardElement) {
     cardElement.children[1].style.visibility = "hidden";
 }
 
@@ -113,14 +115,18 @@ function flipBackCards() {
 function checkIfBoardIsDone() {
     console.log(state)
     let boardIsDone = state.amountOfCards === state.amountOfCardsTurned
-    if (boardIsDone){
-        alert("Well done! Play another round?")
+    if (boardIsDone) {
+        let newScore = state.score++
+        console.log(newScore)
+        state.score = newScore
+        increaseScore(newScore);
+
+        setTimeout(() => {
+            alert("Well done! Play another round?")
+        }, 250)
     }
-        
 }
 
-function increaseScore() {
-
-    let oldScore = parseInt(document.getElementById("score").innerText);
-    document.getElementById("score").innerText = ++oldScore;
-} 
+function increaseScore(score) {
+    document.getElementById("score").innerText = score
+}

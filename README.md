@@ -31,7 +31,7 @@ This is a game created to help improve memory or reduce boredom! The board consi
 
 - I have confirmed that the game results will always be correct.  
 
-- I can confirm that the header, options, instructions, footer and results are all readable, and if css fail to load, vital content will still be visable to user.  
+- I can confirm that the header, options, instructions, footer and results are all readable. But if css fail to load, vital content is not visable to user, as this game relies on the css to work.  
 
 - I have tested with devtool Lighthouse that all colors and fonts are easy to read. 
 
@@ -39,6 +39,7 @@ This is a game created to help improve memory or reduce boredom! The board consi
 
 - Solved bugs: 
 - Remaining bugs: 
+    - If user clicks on different cards too fast, the game will bug out. Resulting in having three cards open, and eventually completing the game while not having turned all cards. 
 
 ### Validator Testing
 - Html 
@@ -61,6 +62,7 @@ This is a game created to help improve memory or reduce boredom! The board consi
 - The code to build the structure of the game was inspired from https://www.webtips.dev/memory-game-in-javascript
 - The fonts that was used was taken from  https://fonts.google.com/ 
 - The solution to shuffle the array was taken from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array 
+- Senior programmer Joris Bomert, helping me with JavaScript for the game structure. 
 
 ### Media
 - The images for the cards were taken from https://pexels.com 

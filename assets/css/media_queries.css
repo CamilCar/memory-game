@@ -2,11 +2,11 @@
 
 /* for small screens and laptops between 769px to 1024px */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
-   .card {
-    position: relative;
-    width: 170px;
-    height: 140px;
-   }
+    .card {
+        position: relative;
+        width: 170px;
+        height: 140px;
+    }
 }
 
 /* for medium size screens between 481px to 768px wide  */
@@ -28,26 +28,42 @@
         margin-right: auto;
         margin-top: 39px;
     }
+
+    .card {
+        width: 145px;
+        height: 135px;
+    }
+
 }
 
 
-/* for small mobile devices */
+/* for small mobile devices 480px and down */
 @media screen and (max-width: 480px) {
-   #board {
-    grid-template-columns: repeat(2, auto);
-} 
-h1 {
-    font-size: 50px;
-}
+    #board {
+        grid-template-columns: repeat(2, auto);
+        grid-gap: 10px;
+    }
 
-h2 {
-    font-size: 26px;
-}
+    h1 {
+        font-size: 50px;
+    }
 
-p {
-    text-align: center;
-    margin-right: auto;
-    margin-top: 39px;
-}
-       
+    h2 {
+        font-size: 26px;
+    }
+
+    p {
+        text-align: center;
+        margin-right: auto;
+        margin-top: 39px;
+    }
+
+    .card {
+        width: 160px;
+        height: 115px;
+    }
+
+    #game {
+        height: 100vh;
+    }
 }

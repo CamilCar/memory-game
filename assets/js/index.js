@@ -61,10 +61,10 @@ function shuffleArray(arrayToShuffle) {
 }
 
 function flipCard(event) {
-    let currentTarget = event.currentTarget
     if (state.flippedCards === 2) {
         return
     }
+    let currentTarget = event.currentTarget
     displayCard(currentTarget)
     state.flippedCards++
 

@@ -5,7 +5,7 @@ let state = {
     amountOfCards: 0,
     amountOfCardsTurned: 0,
     score: 0,
-}
+};
 
 /* initiate game */
 imagesToBoard();
@@ -46,6 +46,7 @@ function imagesToBoard() {
     document.getElementById("board").innerHTML = boardHtml;
 }
 
+/* eslint-disable-next-line  no-unused-vars */
 function flipCard(event) {
     if (state.flippedCards === 2) {
         return;

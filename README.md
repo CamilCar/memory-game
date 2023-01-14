@@ -62,7 +62,7 @@ This is a game created to help improve memory or reduce boredom! The board consi
 - The code to build the structure of the game was inspired from https://www.webtips.dev/memory-game-in-javascript
 - The fonts that was used was taken from  https://fonts.google.com/ 
 - The solution to shuffle the array was taken from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array 
-- Senior programmer Joris Bomert, helping me with JavaScript for the game structure. 
+- Senior programmer Joris Bomert, helping with JavaScript for the game structure. 
 
 ### Media
 - The images for the cards were taken from https://pexels.com 

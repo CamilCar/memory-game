@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@700&display=swap');
 
+/* code inspiration from another source, credit in readme */
 body {
     font-family: 'Rowdies', sans-serif, cursive;
     background-color: #8a7c8d;
@@ -16,10 +17,8 @@ h2 {
     font-size: 35px;
 }
 
-p {
+#game-rule {
     text-align: center;
-    margin-right: 370px;
-    margin-top: 40px;
 }
 
 #board {
@@ -27,7 +26,7 @@ p {
     display: grid;
     grid-template-columns: repeat(4, auto);
     grid-gap: 20px;
-    height: 350px;
+    height: 445px;
     justify-content: center;
 }
 
@@ -51,4 +50,9 @@ img {
     height: 100%;
     position: absolute;
     border-radius: 5px;
+}
+
+#score-area {
+    display: flex;
+    justify-content: space-evenly;
 }

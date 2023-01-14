@@ -3,7 +3,7 @@
 /* code inspiration from another source, credit in readme */
 body {
     font-family: 'Rowdies', sans-serif, cursive;
-    background-color: #8a7c8d;
+    background-image: radial-gradient(circle, #beb82f, #c77131, #a03849, #581e4d, #040e32);
 }
 
 h1 {
@@ -15,6 +15,12 @@ h1 {
 h2 {
     text-align: center;
     font-size: 35px;
+}
+
+h1,
+h2, 
+p {
+    color: #0B0808
 }
 
 #game-rule {
@@ -41,8 +47,7 @@ h2 {
     border-radius: 5px;
     width: 100%;
     height: 100%;
-    background: #71179b;
-    backface-visibility: hidden;
+    background-image: linear-gradient(to right top, #d16ba5, #ba64a8, #a05ea9, #8359a9, #6255a6, #6255a6, #6255a6, #6255a6, #8359a9, #a05ea9, #ba64a8, #d16ba5);
 }
 
 img {

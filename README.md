@@ -48,6 +48,9 @@ This is a game created to help improve memory or reduce boredom! The board consi
 - css 
     - No errors were returned when checking it through the official Jigsaw validator. 
 
+- JavaScript
+    - One error was returned when checking it through EsLint validator. JavaScript did not see flipCard being used because it is called for in an onClick created in an HTML element. Needed to add 'eslint-disable-next-line  no-unused-vars comment' to flipCard function. Resolved.
+
 ## Deployment
 ---------------
 - The site was deployed to GitHub by:
@@ -62,10 +65,11 @@ This is a game created to help improve memory or reduce boredom! The board consi
 - The code to build the structure of the game was inspired from https://www.webtips.dev/memory-game-in-javascript
 - The fonts that was used was taken from  https://fonts.google.com/ 
 - The solution to shuffle the array was taken from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array 
-- Senior programmer Joris Bomert, helping with JavaScript for the game structure. 
+- Senior programmer Joris Bomert, helping with JavaScript for the game structure and install EsLint. 
 
 ### Media
 - The images for the cards were taken from https://pexels.com 
+- The styling of colors in CSS was used from https://mycolor.space/
 
 
 

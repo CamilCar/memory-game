@@ -33,15 +33,21 @@
         width: 145px;
         height: 135px;
     }
+
+    h1,
+    h2,
+    p {
+        color: #F39B3F
+    }
 }
 
 
-/* for small mobile devices 480px and down */
+/* for mobile devices 480px and down */
 @media screen and (max-width: 480px) {
     #board {
         grid-template-columns: repeat(2, auto);
         grid-gap: 10px;
-        height: 730px;
+        height: 620px;
     }
 
     h1 {
@@ -53,7 +59,14 @@
     }
 
     .card {
-        width: 160px;
-        height: 115px;
+        width: 145px;
+        height: 90px;
+
+    }
+
+    h1,
+    h2,
+    p {
+        color: #F39B3F
     }
 }

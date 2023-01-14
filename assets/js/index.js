@@ -79,18 +79,18 @@ function flipCard(event) {
         if (state.card1Url !== state.card2Url) {
             setTimeout(() => {
                 flipBackCards()
-                emptyState();
+                resetTurn();
             }, 1000)
         } else {
             state.amountOfCardsTurned += 2;
             checkIfBoardIsDone();
-            emptyState();
+            resetTurn();
         }
     }
 
 }
 
-function emptyState() {
+function resetTurn() {
     state.flippedCards = 0;
     state.card1Url = "";
     state.card2Url = "";
@@ -116,15 +116,26 @@ function checkIfBoardIsDone() {
     console.log(state)
     let boardIsDone = state.amountOfCards === state.amountOfCardsTurned
     if (boardIsDone) {
-        let newScore = state.score++
+        let newScore = state.score+1
+
         console.log(newScore)
         state.score = newScore
         increaseScore(newScore);
 
         setTimeout(() => {
             alert("Well done! Play another round?")
+            emptyState();
+            imagesToBoard();
         }, 250)
     }
+}
+
+function emptyState() {
+    state.flippedCards = 0
+    state.card1Url = ''
+    state.card2Url = ''
+    state.amountOfCards = 0
+    state.amountOfCardsTurned = 0
 }
 
 function increaseScore(score) {

@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rowdies:wght@700&display=swap');
 
-/* code inspiration from another source, credit in readme */
 body {
     font-family: 'Rowdies', sans-serif, cursive;
     background-image: radial-gradient(circle, #beb82f, #c77131, #a03849, #581e4d, #040e32);
